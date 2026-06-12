@@ -23,19 +23,25 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
   position:fixed;top:0;left:0;right:0;z-index:1000;
   height:56px;background:var(--black);
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 28px;
+  padding:0 32px;
   border-bottom:1px solid rgba(229,57,53,.2);
 }
-.logo{text-decoration:none;color:#fff;font-size:13px;font-weight:800;letter-spacing:.5px}
+.logo{text-decoration:none;color:#fff;font-size:13px;font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
 .logo span{color:rgba(255,255,255,.35);font-size:11px;margin-left:6px;font-weight:300}
-.topbar-nav{display:flex;gap:8px;align-items:center}
+.topbar-nav{display:flex;gap:28px;align-items:center}
 .topbar-nav a{
-  color:rgba(255,255,255,.55);font-size:12px;text-decoration:none;
-  padding:6px 12px;border-radius:4px;transition:.15s;
-  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;
+  transition:.15s;
 }
-.topbar-nav a:hover{color:#fff;border-color:rgba(255,255,255,.3)}
-.topbar-nav a.active{background:var(--red);color:#fff;border-color:var(--red)}
+.topbar-nav a:hover{color:var(--red)}
+.topbar-nav a.active{color:#fff;font-weight:700}
+.topbar-cta{
+  background:var(--red);color:#fff;cursor:pointer;
+  border:none;border-radius:5px;padding:8px 16px;
+  font-family:inherit;font-size:12.5px;font-weight:700;
+  text-decoration:none;transition:all .15s;
+}
+.topbar-cta:hover{background:var(--red2)}
 
 /* hero */
 #hero{
@@ -192,20 +198,23 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
   #gallery-section{padding:20px 14px 60px}
   .lb-prev{left:-8px}
   .lb-next{right:-8px}
-  .topbar-nav a{font-size:11px;padding:5px 8px}
-  #topbar{padding:0 14px}
+  .topbar-nav{display:none}
+  #topbar{padding:0 14px} .topbar-cta{display:none}
 }
 </style>
 </head>
 <body>
 
 <header id="topbar">
-  <a class="logo" href="index.html">HWAKANGARM PLUS<span>BUSAN</span></a>
+  <a class="logo" href="index.html">HWAKANGARM PLUS<span> BUSAN</span></a>
   <nav class="topbar-nav">
-    <a href="index.html">메인</a>
+    <a href="index.html#features">자료소개</a>
     <a href="data.html">입시자료</a>
     <a href="gallery.html" class="active">갤러리</a>
+    <a href="index.html#about">학원소개</a>
+    <a href="index.html#contact">상담문의</a>
   </nav>
+  <a class="topbar-cta" href="index.html#contact">상담 신청</a>
 </header>
 
 <section id="hero">
