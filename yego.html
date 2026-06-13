@@ -14,7 +14,7 @@ body{background:#f7f6f3;width:100%;margin:0;padding:0;font-family:Noto Sans KR,s
 :root{--navy:#0a1929;--navy2:#102a47;--navy3:#1a3a5c;--accent:#e53935;--blue:#1976d2;--blue2:#e3f0fc;--green:#1b5e20;--green2:#e8f5e9;--ink:#1a1a2e;--ink2:#444;--ink3:#777;--ink4:#aaa;--bg:#f7f6f3;--bg2:#edecea;--bg3:#fff;--border:#dddbd5;--r:6px;--shadow:0 2px 12px #00000012}
 
 /* topbar */
-#page-topbar{z-index:1000;background:#0d0d0d;border-bottom:1px solid #e5393533;justify-content:space-between;align-items:center;height:56px;min-height:56px;padding:0 28px;display:flex;position:fixed;top:0;left:0;right:0}
+#page-topbar{z-index:1000;background:#0d0d0d;border-bottom:1px solid #e5393533;justify-content:space-between;align-items:center;height:56px;min-height:56px;padding:0 28px;display:flex;position:fixed;top:0;left:0;right:0;gap:0}
 .topbar-logo{align-items:center;gap:8px;text-decoration:none;display:flex}
 .topbar-logo-name{color:#fff;letter-spacing:.5px;font-size:13px;font-weight:800}
 .topbar-logo-loc{color:#ffffff59;margin-left:4px;font-size:11px;font-weight:300}
@@ -150,26 +150,36 @@ mark{background:#fff176;border-radius:2px;padding:0 2px}
   .section-header{padding:0 0 10px}
 }
 .modal-overlay{z-index:2000;background:#0009;justify-content:center;align-items:center;padding:20px;display:none;position:fixed;inset:0}.modal-overlay.open{display:flex}.modal-box{background:#fff;border-radius:12px;width:100%;max-width:480px;overflow:hidden;box-shadow:0 20px 60px #0000004d}.modal-head{border-bottom:1px solid #eee;justify-content:space-between;align-items:center;padding:18px 20px;display:flex}.modal-head h3{color:#111;font-size:15px;font-weight:700}.modal-close{cursor:pointer;color:#aaa;background:0 0;border:none;padding:0;font-size:20px;line-height:1}.modal-close:hover{color:#333}.modal-body{padding:20px}.modal-row{margin-bottom:14px}.modal-label{color:#555;margin-bottom:5px;font-size:11.5px;font-weight:600;display:block}.modal-input{color:#111;box-sizing:border-box;border:1.5px solid #e0e0e0;border-radius:6px;outline:none;width:100%;padding:9px 12px;font-family:inherit;font-size:13.5px;transition:all .15s}.modal-input:focus{border-color:#e53935}.modal-submit{color:#fff;cursor:pointer;background:#111;border:none;border-radius:6px;width:100%;padding:12px;font-family:inherit;font-size:14px;font-weight:700;transition:all .15s}.modal-submit:hover{background:#e53935}.modal-success{text-align:center;color:#333;padding:32px 20px;font-size:14px;line-height:1.7}.modal-success strong{color:#111;margin-bottom:8px;font-size:16px;display:block}
+
+/* index 스타일 통일 */
+
+
+
+
+
+
+nav{z-index:900;background:#111;border-bottom:1px solid #e5393540;align-items:center;padding:0 16px;display:flex;position:fixed;top:56px;left:0;right:0;box-shadow:0 2px 8px #0006}.logo{color:#ffffff80;letter-spacing:.3px;flex-shrink:0;align-items:center;gap:6px;margin-right:16px;padding:12px 0;font-size:13px;font-weight:900;display:flex}.logo span{background:var(--accent);color:#fff;letter-spacing:.5px;border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700}nav a{color:#fff9;letter-spacing:-.2px;border-bottom:3px solid #0000;flex-shrink:0;padding:14px 12px;font-size:12.5px;font-weight:500;text-decoration:none;transition:all .15s}nav a.on,nav a:hover{color:#fff;border-bottom-color:var(--accent)}.nav-spacer{flex:1}
 </style>
 </head>
 <body>
 
 <div id=page-topbar>
   <a class=topbar-logo href="https://hwagang.co.kr/index.html">
-    <span class=topbar-logo-name>HWAKANGARM PLUS <span class=topbar-logo-loc>BUSAN</span></span>
+    <span class=topbar-logo-name>HWAKANGARM PLUS<span class=topbar-logo-loc> BUSAN</span></span>
   </a>
   <div style="display:flex;gap:8px;align-items:center">
-  <button onclick="openModal('error')" style="color:#fff;cursor:pointer;white-space:nowrap;background:#e53935;border:none;border-radius:4px;padding:6px 11px;font-family:inherit;font-size:11px;font-weight:700;transition:all .15s">오류 제보</button>
-  <button onclick="openModal('inquiry')" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.5)'" onmouseout="this.style.color='rgba(255,255,255,.6)';this.style.borderColor='rgba(255,255,255,.2)'" style="color:#fff9;cursor:pointer;white-space:nowrap;background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:6px 11px;font-family:inherit;font-size:11px;font-weight:600;transition:all .15s">문의</button>
+    <button onclick="openModal('error')" onmouseout="this.style.background='#E53935'" onmouseover="this.style.background='#EF5350'" style="color:#fff;cursor:pointer;white-space:nowrap;background:#e53935;border:none;border-radius:4px;padding:6px 11px;font-family:inherit;font-size:11px;font-weight:700;transition:all .15s">오류 제보</button>
+    <button onclick="openModal('inquiry')" onmouseout="this.style.color='rgba(255,255,255,.6)';this.style.borderColor='rgba(255,255,255,.2)'" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,.5)'" style="color:#fff9;cursor:pointer;white-space:nowrap;background:0 0;border:1px solid #fff3;border-radius:4px;padding:5px 10px;font-family:inherit;font-size:11px;transition:all .15s">문의</button>
+  </div>
 </div>
-</div>
-
 <nav>
   <div class=logo><span>ART</span> 예고입시 2027</div>
-  <a class=on href=#s0>예고입시</a>
+  <a class=on href=#s0>학교 비교</a>
   <a href=#s1>학교별 상세</a>
+  <a href=#s_score>성적·전형</a>
+  <a href=#s_history>출제 이력</a>
   <a href=#s2>입시 일정</a>
-  <a href=#s_score>성적·전형</a><a href=#s_history>출제 이력</a><a href=#s3>준비 가이드</a>
+  <a href=#s3>준비 가이드</a>
   <div class=nav-spacer></div>
 </nav>
 
@@ -194,6 +204,8 @@ mark{background:#fff176;border-radius:2px;padding:0 2px}
     </div>
   </div>
 </div>
+
+
 
 <main>
 
