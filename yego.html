@@ -8,7 +8,7 @@
 <link rel=preconnect href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel=stylesheet>
 <style>
-html{scroll-behavior:smooth;background:#f7f6f3;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:112px;background:#f7f6f3;overflow-x:hidden}
 body{background:#f7f6f3;width:100%;margin:0;padding:0;font-family:Noto Sans KR,sans-serif;font-size:13px;line-height:1.65;color:#1a1a2e;overflow-x:hidden}
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#0a1929;--navy2:#102a47;--navy3:#1a3a5c;--accent:#e53935;--blue:#1976d2;--blue2:#e3f0fc;--green:#1b5e20;--green2:#e8f5e9;--ink:#1a1a2e;--ink2:#444;--ink3:#777;--ink4:#aaa;--bg:#f7f6f3;--bg2:#edecea;--bg3:#fff;--border:#dddbd5;--r:6px;--shadow:0 2px 12px #00000012}
@@ -174,12 +174,12 @@ nav{z-index:9000;background:#111;border-bottom:1px solid #e5393540;align-items:c
 </div>
 <nav>
   <div class=logo><span>ART</span> 예고입시 2027</div>
-  <a class=on href=#s0>학교 비교</a>
+  <a href=#s0>학교 비교</a>
   <a href=#s1>학교별 상세</a>
   <a href=#s2>입시 일정</a>
+  <a href=#s3>준비 가이드</a>
   <a href=#s_score>성적·전형</a>
   <a href=#s_history>출제 이력</a>
-  <a href=#s3>준비 가이드</a>
   <div class=nav-spacer></div>
 </nav>
 
@@ -882,6 +882,48 @@ nav{z-index:9000;background:#111;border-bottom:1px solid #e5393540;align-items:c
 <div class=modal-overlay id=modal-inquiry><div class=modal-box><div class=modal-head><h3>문의</h3><button onclick="closeModal('inquiry')" class=modal-close>×</button></div><div class=modal-body><form onsubmit="handleModalSubmit(event,'inquiry')" action="https://formspree.io/f/xzdqkpaq" method=POST><div class=modal-row><label class=modal-label>이름</label><input placeholder="이름을 입력해주세요" class=modal-input name=이름 required></div><div class=modal-row><label class=modal-label>연락처</label><input placeholder="전화번호 또는 이메일" class=modal-input name=연락처 required></div><div class=modal-row><label class=modal-label>문의 내용</label><textarea placeholder="문의 내용을 적어주세요" class=modal-input name=문의내용 required rows=4 style=resize:vertical></textarea></div><button class=modal-submit>문의하기</button></form></div></div></div>
 
 <script>
+/* ── 네비게이터 스크롤 ── */
+document.querySelectorAll('nav a[href^="#"]').forEach(function(link){
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    var target = document.getElementById(this.getAttribute('href').slice(1));
+    if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+/* ── 네비게이터 활성 상태 ── */
+(function(){
+  var navLinks = document.querySelectorAll('nav a[href^="#"]');
+  var sectionIds = ['s0','s1','s2','s3','s_score','s_history'];
+
+  function setActive(){
+    var scrollY = window.pageYOffset;
+    var winH = window.innerHeight;
+    var docH = document.documentElement.scrollHeight;
+    var offset = 116;
+    var current = sectionIds[0];
+
+    if(scrollY + winH >= docH - 2){
+      current = sectionIds[sectionIds.length - 1];
+    } else {
+      sectionIds.forEach(function(id){
+        var el = document.getElementById(id);
+        if(el && scrollY >= el.offsetTop - offset) current = id;
+      });
+    }
+
+    navLinks.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      if(id === current) a.classList.add('on');
+      else a.classList.remove('on');
+    });
+  }
+
+  window.addEventListener('scroll', setActive, {passive:true});
+  window.addEventListener('load', setActive);
+  setActive();
+})();
+
 function openModal(t){
   var el=document.getElementById('modal-'+t);
   if(el){el.classList.add('open');document.body.style.overflow='hidden';}
