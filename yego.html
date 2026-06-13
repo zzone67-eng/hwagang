@@ -14,7 +14,7 @@ body{background:#f7f6f3;width:100%;margin:0;padding:0;font-family:Noto Sans KR,s
 :root{--navy:#0a1929;--navy2:#102a47;--navy3:#1a3a5c;--accent:#e53935;--blue:#1976d2;--blue2:#e3f0fc;--green:#1b5e20;--green2:#e8f5e9;--ink:#1a1a2e;--ink2:#444;--ink3:#777;--ink4:#aaa;--bg:#f7f6f3;--bg2:#edecea;--bg3:#fff;--border:#dddbd5;--r:6px;--shadow:0 2px 12px #00000012}
 
 /* topbar */
-#page-topbar{z-index:1000;background:#0d0d0d;border-bottom:1px solid #e5393533;justify-content:space-between;align-items:center;height:56px;min-height:56px;padding:0 28px;display:flex;position:fixed;top:0;left:0;right:0;gap:0}
+#page-topbar{z-index:10000;background:#0d0d0d;border-bottom:1px solid #e5393533;justify-content:space-between;align-items:center;height:56px;min-height:56px;padding:0 28px;display:flex;position:fixed;top:0;left:0;right:0;gap:0}
 .topbar-logo{align-items:center;gap:8px;text-decoration:none;display:flex}
 .topbar-logo-name{color:#fff;letter-spacing:.5px;font-size:13px;font-weight:800}
 .topbar-logo-loc{color:#ffffff59;margin-left:4px;font-size:11px;font-weight:300}
@@ -22,15 +22,15 @@ body{background:#f7f6f3;width:100%;margin:0;padding:0;font-family:Noto Sans KR,s
 .topbar-back:hover{color:#fff;border-color:#ffffff4d}
 
 /* nav */
-nav{z-index:900;background:#111;border-bottom:1px solid #e5393540;align-items:center;padding:0 16px;display:flex;position:fixed;top:56px;left:0;right:0;box-shadow:0 2px 8px #0006}
+nav{z-index:9000;background:#111;border-bottom:1px solid #e5393540;align-items:center;padding:0 16px;display:flex;position:fixed;top:56px;left:0;right:0;box-shadow:0 2px 8px #0006}
 .logo{color:#ffffff80;letter-spacing:.3px;flex-shrink:0;align-items:center;gap:6px;margin-right:16px;padding:12px 0;font-size:13px;font-weight:900;display:flex}
 .logo span{background:var(--accent);color:#fff;letter-spacing:.5px;border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700}
-nav a{color:#fff9;letter-spacing:-.2px;border-bottom:3px solid #0000;flex-shrink:0;padding:14px 12px;font-size:12.5px;font-weight:500;text-decoration:none;transition:all .15s}
+nav a{color:#fff9;letter-spacing:-.2px;border-bottom:3px solid #0000;flex-shrink:0;padding:14px 12px;font-size:12.5px;font-weight:500;text-decoration:none;transition:all .15s;pointer-events:auto;cursor:pointer}
 nav a.on,nav a:hover{color:#fff;border-bottom-color:var(--accent)}
 .nav-spacer{flex:1}
 
 /* hero */
-.hero{color:#fff;background:#111;margin-top:100px;padding:40px 28px 32px;position:relative;overflow:hidden}
+.hero{color:#fff;background:#111;margin-top:100px;padding:40px 28px 32px;position:relative;overflow:hidden;z-index:0}
 .hero:before{content:"";pointer-events:none;background:radial-gradient(at 80%,#e539350f 0%,#0000 60%);position:absolute;inset:0}
 .hero-inner{align-items:flex-start;gap:24px;max-width:1400px;margin:0 auto;display:flex}
 .hero-content{flex:1}
@@ -158,7 +158,7 @@ mark{background:#fff176;border-radius:2px;padding:0 2px}
 
 
 
-nav{z-index:900;background:#111;border-bottom:1px solid #e5393540;align-items:center;padding:0 16px;display:flex;position:fixed;top:56px;left:0;right:0;box-shadow:0 2px 8px #0006}.logo{color:#ffffff80;letter-spacing:.3px;flex-shrink:0;align-items:center;gap:6px;margin-right:16px;padding:12px 0;font-size:13px;font-weight:900;display:flex}.logo span{background:var(--accent);color:#fff;letter-spacing:.5px;border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700}nav a{color:#fff9;letter-spacing:-.2px;border-bottom:3px solid #0000;flex-shrink:0;padding:14px 12px;font-size:12.5px;font-weight:500;text-decoration:none;transition:all .15s}nav a.on,nav a:hover{color:#fff;border-bottom-color:var(--accent)}.nav-spacer{flex:1}
+nav{z-index:9000;background:#111;border-bottom:1px solid #e5393540;align-items:center;padding:0 16px;display:flex;position:fixed;top:56px;left:0;right:0;box-shadow:0 2px 8px #0006}.logo{color:#ffffff80;letter-spacing:.3px;flex-shrink:0;align-items:center;gap:6px;margin-right:16px;padding:12px 0;font-size:13px;font-weight:900;display:flex}.logo span{background:var(--accent);color:#fff;letter-spacing:.5px;border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700}nav a{color:#fff9;letter-spacing:-.2px;border-bottom:3px solid #0000;flex-shrink:0;padding:14px 12px;font-size:12.5px;font-weight:500;text-decoration:none;transition:all .15s;pointer-events:auto;cursor:pointer}nav a.on,nav a:hover{color:#fff;border-bottom-color:var(--accent)}.nav-spacer{flex:1}
 </style>
 </head>
 <body>
@@ -178,8 +178,8 @@ nav{z-index:900;background:#111;border-bottom:1px solid #e5393540;align-items:ce
   <a href=#s1>학교별 상세</a>
   <a href=#s_score>성적·전형</a>
   <a href=#s2>입시 일정</a>
-  <a href=#s3>준비 가이드</a>
   <a href=#s_history>출제 이력</a>
+  <a href=#s3>준비 가이드</a>
   <div class=nav-spacer></div>
 </nav>
 
