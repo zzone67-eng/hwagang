@@ -241,11 +241,21 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
       </div>
       <a class="tel-btn" href="tel:051-553-3698"> 전화 상담</a>
     </div>
-    <div class="map-box">
-      <iframe
-        src="https://map.naver.com/p/entry/place/1836157530?c=15,0,0,0,dh"
-        width="100%" height="100%" allowfullscreen loading="lazy" title="화강암플러스미술학원 지도" style="border:none;display:block">
-      </iframe>
+    <div class="map-box" style="position:relative;overflow:hidden;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+      <img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster?w=600&h=400&center=129.0784,35.2026&level=14&markers=type:t|size:mid|pos:129.0784%2035.2026|label:화강암플러스" 
+           onerror="this.style.display='none'" 
+           style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" alt="지도">
+      <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;align-items:center">
+        <div style="font-size:13px;color:rgba(255,255,255,.6)">부산 동래구 석사로 42-1 라인빌딩 3층</div>
+        <a href="https://map.naver.com/p/entry/place/1836157530" target="_blank" rel="noopener"
+           style="background:var(--red);color:#fff;text-decoration:none;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:700">
+          네이버 지도에서 보기
+        </a>
+        <a href="https://map.kakao.com/link/search/화강암플러스미술학원" target="_blank" rel="noopener"
+           style="background:#FEE500;color:#3A1D1D;text-decoration:none;padding:10px 24px;border-radius:6px;font-size:13px;font-weight:700">
+          카카오맵에서 보기
+        </a>
+      </div>
     </div>
   </div>
 </section>
