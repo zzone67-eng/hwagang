@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>학생 작품 갤러리 — 화강암플러스미술학원</title>
+<meta name="description" content="화강암플러스미술학원 학생 실기 개인작품 갤러리">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hwagang.co.kr/gallery/">
+<meta property="og:title" content="학생 작품 갤러리 — 화강암플러스미술학원">
+<meta property="og:description" content="화강암플러스미술학원 학생들의 기초디자인·소묘·수채화·애니메이션·개인작품 갤러리입니다.">
+<meta property="og:image" content="https://hwagang.co.kr/image/gallery/A1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://hwagang.co.kr/gallery/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0D0D0D;--red:#E53935;--red2:#EF5350;
+  --white:#fff;--bg:#0D0D0D;--border:#2a2a2a;
+  --ink:#fff;--ink2:rgba(255,255,255,.6);--ink3:rgba(255,255,255,.35);
+}
+html{scroll-behavior:smooth;background:var(--black)}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)}
+
+/* topbar */
+#topbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  height:56px;background:var(--navy);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  border-bottom:1px solid rgba(229,57,53,.2);
+}
+.logo{text-decoration:none;color:#fff;font-size:13px;font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+.logo-loc{color:rgba(255,255,255,.35);font-size:11px;margin-left:6px;font-weight:300}
+.topbar-nav{display:flex;gap:28px;align-items:center}
+.topbar-nav a{
+  color:rgba(255,255,255,.6);font-size:13px;text-decoration:none;
+  transition:.15s;
+}
+.topbar-nav a:hover{color:var(--red)}
+.topbar-nav a.active{color:#fff;font-weight:700}
+.topbar-cta{
+  background:var(--red);color:#fff;cursor:pointer;
+  border:none;border-radius:5px;padding:8px 16px;
+  font-family:inherit;font-size:12.5px;font-weight:700;
+  text-decoration:none;transition:all .15s;
+}
+.topbar-cta:hover{background:var(--red2)}
+
+/* hero */
+#hero{padding-top:56px;background:var(--navy);padding-bottom:48px;border-bottom:1px solid rgba(229,57,53,.15);}
+.hero-inner{
+  max-width:1200px;margin:0 auto;
+  padding:40px 28px 0;
+}
+.hero-label{
+  font-size:11px;font-weight:700;letter-spacing:2px;
+  color:var(--red);text-transform:uppercase;margin-bottom:12px;
+}
+.hero-title{
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:900;color:#fff;line-height:1.2;
+  letter-spacing:-1px;margin-bottom:12px;
+}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7}
+
+/* 필터 */
+#filters{
+  background:#111;
+  border-bottom:1px solid #2a2a2a;
+  position:sticky;top:56px;z-index:500;
+}
+.filter-inner{
+  max-width:1200px;margin:0 auto;
+  padding:14px 28px;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.filter-btn{
+  padding:6px 14px;border-radius:20px;
+  font-size:12.5px;font-weight:500;
+  border:1.5px solid #333;
+  background:#1a1a1a;color:rgba(255,255,255,.5);
+  cursor:pointer;transition:.15s;font-family:inherit;
+}
+.filter-btn:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.filter-btn.on{background:#fff;color:#111;border-color:#fff}
+.filter-count{font-size:12px;color:var(--ink3);margin-left:auto}
+
+/* 갤러리 그리드 */
+#gallery-section{
+  max-width:1200px;margin:0 auto;
+  padding:32px 28px 80px;
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:20px;
+}
+.gallery-item{
+  background:#1a1a1a;border-radius:8px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  cursor:pointer;transition:.2s;
+}
+.gallery-item:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+.gallery-thumb{
+  width:100%;aspect-ratio:4/3;
+  object-fit:cover;display:block;
+  background:#1a1a1a;
+}
+.gallery-thumb-placeholder{
+  width:100%;aspect-ratio:4/3;
+  background:linear-gradient(135deg,#1a1a1a 0%,#222 100%);
+  display:flex;align-items:center;justify-content:center;
+  color:#ccc;font-size:13px;
+}
+.gallery-info{padding:14px 16px}
+.gallery-tag{
+  font-size:10.5px;font-weight:600;
+  background:#2a2a2a;color:rgba(255,255,255,.5);
+  border-radius:4px;padding:2px 7px;
+  display:inline-block;margin-bottom:6px;
+}
+.gallery-tag.red{background:rgba(229,57,53,.08);color:var(--red)}
+.gallery-title{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.gallery-meta{font-size:12px;color:var(--ink3)}
+
+/* 빈 상태 */
+.gallery-empty{
+  grid-column:1/-1;
+  padding:80px 20px;text-align:center;
+  color:var(--ink3);font-size:14px;line-height:1.8;
+}
+.gallery-empty strong{display:block;font-size:18px;font-weight:700;color:var(--ink2);margin-bottom:8px}
+
+/* 라이트박스 */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.92);
+  align-items:center;justify-content:center;
+  padding:20px;
+}
+#lightbox.open{display:flex}
+.lb-inner{
+  position:relative;max-width:900px;width:100%;
+}
+.lb-img{
+  width:100%;max-height:80vh;
+  object-fit:contain;border-radius:4px;display:block;
+}
+.lb-info{
+  margin-top:16px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;
+}
+.lb-title{font-size:15px;font-weight:700;color:#fff}
+.lb-meta{font-size:13px;color:rgba(255,255,255,.5)}
+.lb-close{
+  position:absolute;top:-44px;right:0;
+  background:none;border:none;color:rgba(255,255,255,.6);
+  font-size:28px;cursor:pointer;line-height:1;
+  transition:.15s;
+}
+.lb-close:hover{color:#fff}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.12);border:none;color:#fff;
+  width:44px;height:44px;border-radius:50%;
+  font-size:20px;cursor:pointer;transition:.15s;
+  display:flex;align-items:center;justify-content:center;
+}
+.lb-nav:hover{background:rgba(255,255,255,.25)}
+.lb-prev{left:-56px}
+.lb-next{right:-56px}
+
+/* 이미지 없을 때 안내 */
+.upload-guide{
+  max-width:1200px;margin:0 auto;padding:0 28px 40px;
+}
+.upload-box{
+  background:#111;border:2px dashed #333;
+  border-radius:10px;padding:40px;text-align:center;
+  color:rgba(255,255,255,.35);
+}
+.upload-box strong{display:block;font-size:15px;font-weight:700;color:var(--ink2);margin-bottom:8px}
+.upload-box code{
+  display:inline-block;background:#f5f5f5;
+  border-radius:4px;padding:2px 8px;font-size:12.5px;
+  color:var(--ink);margin:4px 2px;
+}
+
+/* 반응형 */
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .filter-inner{padding:10px 14px;gap:6px}
+  .filter-btn{font-size:11.5px;padding:5px 10px}
+  #gallery-section{padding:20px 14px 60px}
+  .lb-prev{left:-8px}
+  .lb-next{right:-8px}
+  .topbar-nav{display:none}
+  #topbar{padding:0 14px} .topbar-cta{display:none}
+}
+
+footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:60px 32px 32px}
+.footer-top{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;margin-bottom:48px}
+.footer-logo{font-size:15px;font-weight:900;color:#fff;letter-spacing:.5px;margin-bottom:8px}
+.footer-logo span{color:rgba(255,255,255,.35);font-size:12px;font-weight:300;margin-left:6px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-contact-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.footer-tel{color:rgba(255,255,255,.7);font-size:13.5px;font-weight:700;text-decoration:none;transition:.15s}
+.footer-tel:hover{color:#fff}
+.footer-divider{color:rgba(255,255,255,.2)}
+.footer-addr{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:4px;line-height:1.6}
+.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.footer-col{display:flex;flex-direction:column;gap:10px}
+.footer-col-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
+.footer-col a{font-size:13px;color:rgba(255,255,255,.4);text-decoration:none;transition:.15s;line-height:1}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;flex-direction:column;gap:6px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.3)}
+.footer-note{font-size:11px;color:rgba(255,255,255,.2);line-height:1.6}
+@media(max-width:768px){
+  .footer-top{grid-template-columns:1fr;gap:36px}
+  .footer-links{grid-template-columns:repeat(2,1fr);gap:24px}
+  .footer-inner{padding:44px 20px 28px}
+}
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <a class=logo href=/><span class=logo-name>HWAKANGARM PLUS<span class=logo-loc> BUSAN</span></span></a>
+    <nav class="topbar-nav">
+    <a href="/#features">자료소개</a>
+    <a href="/data/">입시자료</a>
+    <a href="/gallery/" class="active">갤러리</a>
+    <a href="/about/">학원소개</a>
+    <a href="/yego/">예고입시</a>
+    <a href="/pass/">합격자</a>
+  </nav>
+  <a class="topbar-cta" href="/consult/">상담 신청</a>
+</header>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Student Works</div>
+    <h1 class="hero-title">학생 작품</h1>
+    <p class="hero-sub">화강암플러스미술학원 학생들의 실기 작품입니다.</p>
+  </div>
+</section>
+
+<div id="filters">
+  <div class="filter-inner">
+    <button class="filter-btn on" onclick="filterGallery('all',this)">전체</button>
+    <button class="filter-btn" onclick="filterGallery('기초디자인',this)">기초디자인</button>
+    <button class="filter-btn" onclick="filterGallery('소묘',this)">소묘</button>
+    <button class="filter-btn" onclick="filterGallery('수채화',this)">수채화</button>
+    <button class="filter-btn" onclick="filterGallery('기초소양',this)">기초소양</button>
+    <button class="filter-btn" onclick="filterGallery('애니메이션',this)">애니메이션</button>
+    <button class="filter-btn" onclick="filterGallery('개인작품',this)">개인작품</button>
+    <span class="filter-count" id="filter-count"></span>
+  </div>
+</div>
+
+<section id="gallery-section">
+  <div class="gallery-grid" id="gallery-grid">
+    <!-- 이미지가 추가되면 여기에 자동으로 표시됩니다 -->
+    <div class="gallery-empty">
+      <strong>작품을 준비 중입니다</strong>
+      곧 학생 작품이 업로드될 예정입니다.
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- 라이트박스 -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightbox()">×</button>
+    <button class="lb-nav lb-prev" onclick="navLightbox(-1,event)">‹</button>
+    <button class="lb-nav lb-next" onclick="navLightbox(1,event)">›</button>
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-info">
+      <div class="lb-title" id="lb-title"></div>
+      <div class="lb-meta" id="lb-meta"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 작품 데이터 — 여기에 추가하세요
+// 이미지는 images/gallery/ 폴더에 올리면 됩니다
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+var WORKS = [
+  {
+    src: 'image/gallery/F1.png',
+    title: '캐릭터 드로잉',
+    category: '개인작품',
+    meta: '2026 · 고1'
+  },
+  {
+    src: 'image/gallery/F2.png',
+    title: '인물 드로잉',
+    category: '개인작품',
+    meta: '2026 · 고1'
+  },
+  {
+    src: 'image/gallery/F3.png',
+    title: '인물 드로잉',
+    category: '개인작품',
+    meta: '2026 · 고1'
+  },
+  {
+    src: 'image/gallery/F4.png',
+    title: '인물 드로잉',
+    category: '개인작품',
+    meta: '2026 · 고1'
+  },
+  {
+    src: 'image/gallery/A1.jpg',
+    title: '기초디자인',
+    category: '기초디자인',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/A2.jpg',
+    title: '기초디자인',
+    category: '기초디자인',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/A3.jpg',
+    title: '기초디자인',
+    category: '기초디자인',
+    meta: '2025 · 고2'
+  },
+  {
+    src: 'image/gallery/A4.jpg',
+    title: '기초디자인',
+    category: '기초디자인',
+    meta: '2024 · 강사작'
+  },
+  {
+    src: 'image/gallery/A5.jpg',
+    title: '기초디자인',
+    category: '기초디자인',
+    meta: '2026 · 강사작'
+  },
+  {
+    src: 'image/gallery/D1.jpg',
+    title: '기초소양',
+    category: '기초소양',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/D2.jpg',
+    title: '기초소양',
+    category: '기초소양',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/D3.jpg',
+    title: '기초소양',
+    category: '기초소양',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/D4.jpg',
+    title: '기초소양',
+    category: '기초소양',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/D5.jpg',
+    title: '기초소양',
+    category: '기초소양',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/D6.jpg',
+    title: '기초소양',
+    category: '기초소양',
+    meta: '2024 · 고3'
+  },
+  {
+    src: 'image/gallery/E1.jpg',
+    title: '상황표현',
+    category: '애니메이션',
+    meta: '2026 · 고3'
+  },
+  {
+    src: 'image/gallery/B1.jpg',
+    title: '정물소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B2.jpg',
+    title: '정물소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B3.jpg',
+    title: '정물소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B4.jpg',
+    title: '정물소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B5.jpg',
+    title: '정물소묘',
+    category: '소묘',
+    meta: '2022 · 중3'
+  },
+  {
+    src: 'image/gallery/C1.jpg',
+    title: '인물수채화',
+    category: '수채화',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B6.jpg',
+    title: '중앙대소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B7.jpg',
+    title: '중앙대소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+  {
+    src: 'image/gallery/B8.jpg',
+    title: '중앙대소묘',
+    category: '소묘',
+    meta: '2025 · 고3'
+  },
+];
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+var currentFilter = 'all';
+var currentIndex = 0;
+var filtered = [];
+
+function renderGallery(){
+  filtered = currentFilter === 'all'
+    ? WORKS
+    : currentFilter === '기초소양'
+      ? WORKS.filter(function(w){ return w.category === '기초소양' || w.category === '발상과표현' || w.category === '사고의전환'; })
+      : WORKS.filter(function(w){ return w.category === currentFilter; });
+
+  var grid = document.getElementById('gallery-grid');
+  var count = document.getElementById('filter-count');
+
+  if(filtered.length === 0){
+    grid.innerHTML = WORKS.length === 0
+      ? '<div class="gallery-empty"><strong>작품을 준비 중입니다</strong>곧 학생 작품이 업로드될 예정입니다.</div>'
+      : '<div class="gallery-empty"><strong>해당 카테고리 작품이 없습니다</strong></div>';
+    count.textContent = '';
+    return;
+  }
+
+  count.textContent = filtered.length + '개';
+  grid.innerHTML = filtered.map(function(w, i){
+    return '<div class="gallery-item" onclick="openLightbox('+i+')">'
+      + '<img class="gallery-thumb" src="'+w.src+'" alt="'+w.title+'" loading="lazy">'
+      + '<div class="gallery-info">'
+      + '<span class="gallery-tag red">'+w.category+'</span>'
+      + '<div class="gallery-title">'+w.title+'</div>'
+      + '<div class="gallery-meta">'+w.meta+'</div>'
+      + '</div></div>';
+  }).join('');
+}
+
+function filterGallery(cat, btn){
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('on'); });
+  btn.classList.add('on');
+  renderGallery();
+}
+
+function openLightbox(i){
+  currentIndex = i;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox(){
+  var w = filtered[currentIndex];
+  document.getElementById('lb-img').src = w.src;
+  document.getElementById('lb-title').textContent = w.title;
+  document.getElementById('lb-meta').textContent = w.meta;
+}
+
+function navLightbox(dir, e){
+  if(e) e.stopPropagation();
+  currentIndex = (currentIndex + dir + filtered.length) % filtered.length;
+  updateLightbox();
+}
+
+function closeLightbox(e){
+  if(e && e.target !== document.getElementById('lightbox') && e.type !== 'click') return;
+  if(e && e.currentTarget !== e.target && e.type === 'click' && !e.target.classList.contains('lb-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// 키보드 이동
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key === 'ArrowLeft') navLightbox(-1);
+  if(e.key === 'ArrowRight') navLightbox(1);
+  if(e.key === 'Escape') closeLightbox({target:document.getElementById('lightbox')});
+});
+
+// 초기 렌더링
+renderGallery();
+</script>
+<footer id="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">HWAKANGARM PLUS <span>BUSAN</span></div>
+        <div class="footer-tagline">부산 동래구 미대입시·예고입시 전문학원</div>
+        <div class="footer-contact-row">
+          <a href="tel:051-553-3698" class="footer-tel">051-553-3698</a>
+          <span class="footer-divider">·</span>
+          <a href="tel:010-7701-6594" class="footer-tel">010-7701-6594</a>
+        </div>
+        <div class="footer-addr">부산광역시 동래구 석사로 42-1 라인빌딩 3층</div>
+        <div class="footer-addr">konkurs@naver.com</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">학원 안내</div>
+          <a href="/about/">학원소개</a>
+          <a href="/about/">반 구성</a>
+          <a href="/about/">오시는 길</a>
+          <a href="/consult/">상담 신청</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">입시 자료</div>
+          <a href="/data/">미대 수시 자료</a>
+          <a href="/yego/">예고입시 자료</a>
+          <a href="/gallery/">학생 작품</a>
+          <a href="/pass/">합격자 현황</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">바로가기</div>
+          <a href="/#features">자료 소개</a>
+          <a href="/#about">학원 소개</a>
+          <a href="/#contact">상담 문의</a>
+          <a href="/consult/">온라인 상담</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 화강암플러스미술학원. All rights reserved.</div>
+      <div class="footer-note">본 자료는 각 대학 공식 모집요강 기반 참고 자료입니다. 원서접수 전 각 대학 입학처에서 반드시 최종 확인하시기 바랍니다.</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
