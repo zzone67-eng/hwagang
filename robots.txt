@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://hwagang.co.kr/sitemap.xml
