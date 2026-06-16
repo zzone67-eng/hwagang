@@ -136,7 +136,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
 }
 
 /* ── 갤러리 마퀴 ── */
-.marquee-track{animation:marquee 20s linear infinite;will-change:transform}
+.marquee-track{animation:marquee 8s linear infinite;will-change:transform}
 .marquee-track:hover{animation-play-state:paused}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
@@ -465,7 +465,7 @@ function setActive(href){
   });
 }
 
-// 앵커 클릭 시 hash 변경 (히스토리 기록) + 스크롤
+// 앵커 클릭 시 스크롤 (히스토리는 건드리지 않음)
 document.querySelectorAll('.topbar-nav a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
     var href=this.getAttribute('href');
@@ -473,21 +473,9 @@ document.querySelectorAll('.topbar-nav a[href^="#"]').forEach(function(a){
     if(!target)return;
     e.preventDefault();
     setActive(href);
-    history.pushState(null, '', href);
+    history.replaceState(null, '', href);
     target.scrollIntoView({behavior:'smooth',block:'center'});
   });
-});
-// 뒤로가기 시 hash 위치로 복원
-window.addEventListener('popstate', function(){
-  var hash=window.location.hash;
-  if(hash){
-    var target=document.querySelector(hash);
-    if(target) target.scrollIntoView({behavior:'smooth',block:'center'});
-    setActive(hash);
-  } else {
-    window.scrollTo({top:0,behavior:'smooth'});
-    setActive('');
-  }
 });
 
 // 자연 스크롤 시 화면 중앙에 가장 가까운 섹션 활성화
