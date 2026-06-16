@@ -142,6 +142,8 @@ mark{background:#fff176;border-radius:2px;padding:0 2px}
 /* 모바일 */
 @media(max-width:768px){
   #page-topbar{padding:0 14px}
+  #page-topbar .topbar-logo-loc{display:none}
+  #page-topbar [style*="display:flex;gap:8px"] a:not(:last-child){display:none}
   nav{padding:0 6px;overflow-x:auto;scrollbar-width:none}
   nav::-webkit-scrollbar{display:none}
   nav a{white-space:nowrap;padding:10px 8px;font-size:11px}
@@ -188,8 +190,8 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
 .footer-copy{font-size:12px;color:rgba(255,255,255,.3)}
 .footer-note{font-size:11px;color:rgba(255,255,255,.2);line-height:1.6}
 @media(max-width:768px){
-  .footer-top{grid-template-columns:1fr;gap:36px}
-  .footer-links{grid-template-columns:repeat(2,1fr);gap:24px}
+  .footer-top{grid-template-columns:1fr;gap:24px}
+  .footer-links{grid-template-columns:repeat(3,1fr);gap:12px}
   .footer-inner{padding:44px 20px 28px}
 }
 </style>
