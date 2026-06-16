@@ -45,7 +45,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
 
 /* hero */
 #hero{
-  padding-top:100px;
+  padding-top:56px;
   background:var(--black);
   padding-bottom:48px;
   border-bottom:1px solid rgba(229,57,53,.15);
@@ -201,27 +201,21 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--ink)
   .topbar-nav{display:none}
   #topbar{padding:0 14px} .topbar-cta{display:none}
 }
-nav{z-index:900;background:#111;border-bottom:1px solid #e5393540;align-items:center;padding:0 16px;display:flex;position:fixed;top:56px;left:0;right:0;box-shadow:0 2px 8px #0006}.logo{color:#ffffff80;letter-spacing:.3px;flex-shrink:0;align-items:center;gap:6px;margin-right:16px;padding:12px 0;font-size:13px;font-weight:900;display:flex}.logo span{background:var(--accent);color:#fff;letter-spacing:.5px;border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700}nav a{color:#fff9;letter-spacing:-.2px;border-bottom:3px solid #0000;flex-shrink:0;padding:14px 12px;font-size:12.5px;font-weight:500;text-decoration:none;transition:all .15s}nav a.on,nav a:hover{color:#fff;border-bottom-color:var(--accent)}.nav-spacer{flex:1}
-#page-topbar{z-index:1000;background:#0d0d0d;border-bottom:1px solid #e5393533;justify-content:space-between;align-items:center;height:56px;min-height:56px;padding:0 28px;display:flex;position:fixed;top:0;left:0;right:0}.topbar-logo{align-items:center;gap:8px;text-decoration:none;display:flex}.topbar-logo-name{color:#fff;letter-spacing:.5px;font-size:13px;font-weight:800}.topbar-logo-loc{color:#ffffff59;margin-left:4px;font-size:11px;font-weight:300}
 </style>
 </head>
 <body>
 
-<div id=page-topbar>
-  <a class=topbar-logo href="index.html">
-    <span class=topbar-logo-name>HWAKANGARM PLUS<span class=topbar-logo-loc> BUSAN</span></span>
-  </a>
-</div>
-<nav>
-  <div class=logo><span>ART</span> 갤러리</div>
-  <a href="index.html">홈</a>
-  <a href="data.html">입시자료</a>
-  <a href="yego.html">예고입시</a>
-  <a class=on href="gallery.html">갤러리</a>
-  <a href="index.html#about">학원소개</a>
-  <a href="index.html#contact">상담문의</a>
-  <div class=nav-spacer></div>
-</nav>
+<header id="topbar">
+  <a class="logo" href="index.html">HWAKANGARM PLUS<span> BUSAN</span></a>
+  <nav class="topbar-nav">
+    <a href="index.html#features">자료소개</a>
+    <a href="data.html">입시자료</a>
+    <a href="gallery.html" class="active">갤러리</a>
+    <a href="index.html#about">학원소개</a>
+    <a href="index.html#contact">상담문의</a>
+  </nav>
+  <a class="topbar-cta" href="index.html#contact">상담 신청</a>
+</header>
 
 <section id="hero">
   <div class="hero-inner">
