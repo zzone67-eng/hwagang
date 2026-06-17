@@ -183,8 +183,12 @@ tbody td{padding:11px 14px;font-size:12.5px;vertical-align:top;color:var(--ink)}
       </select>
     </div>
     <div class=filter-group>
-      <label>검색</label>
-      <input type=text id=fSearch placeholder="학과·전형명 검색" oninput=render()>
+      <label>학교명</label>
+      <input type=text id=fSearchUniv placeholder="학교명 검색" oninput=render()>
+    </div>
+    <div class=filter-group>
+      <label>학과명</label>
+      <input type=text id=fSearchDept placeholder="학과·전형명 검색" oninput=render()>
     </div>
     <div class=filter-right>
       <span class=filter-count id=fCount></span>
@@ -248,11 +252,13 @@ function filterData(){
   const univ=document.getElementById('fUniv').value;
   const type=document.getElementById('fType').value;
   const month=document.getElementById('fMonth').value;
-  const search=document.getElementById('fSearch').value.toLowerCase().trim();
+  const searchUniv=document.getElementById('fSearchUniv').value.toLowerCase().trim();
+  const searchDept=document.getElementById('fSearchDept').value.toLowerCase().trim();
 
   return DATA.filter(d=>{
     if(univ && d.대학명!==univ) return false;
-    if(search && !d.대학명.includes(search) && !d.모집단위.toLowerCase().includes(search) && !(d.전형명||'').toLowerCase().includes(search)) return false;
+    if(searchUniv && !d.대학명.toLowerCase().includes(searchUniv)) return false;
+    if(searchDept && !d.모집단위.toLowerCase().includes(searchDept) && !(d.전형명||'').toLowerCase().includes(searchDept)) return false;
     if(type){
       const td=getTypeDate(d,type);
       if(!td||td==='미정') return false;
@@ -269,6 +275,9 @@ function setView(v){
   currentView=v;
   ['vCard','vTable','vTimeline'].forEach(id=>document.getElementById(id).classList.remove('active'));
   document.getElementById(v==='card'?'vCard':v==='table'?'vTable':'vTimeline').classList.add('active');
+  const typeFilter=document.getElementById('fType');
+  typeFilter.disabled=(v==='timeline');
+  typeFilter.style.opacity=(v==='timeline')?'0.4':'1';
   render();
 }
 
@@ -276,7 +285,8 @@ function resetFilter(){
   document.getElementById('fUniv').value='';
   document.getElementById('fType').value='';
   document.getElementById('fMonth').value='';
-  document.getElementById('fSearch').value='';
+  document.getElementById('fSearchUniv').value='';
+  document.getElementById('fSearchDept').value='';
   render();
 }
 
@@ -366,58 +376,144 @@ function renderTable(items){
 }
 
 function renderTimeline(items){
-  const type=document.getElementById('fType').value||'wonser';
-  const typeLabel={wonser:'원서접수',silgi:'실기고사',myeon:'면접',balpyo:'합격자발표',deungnok:'등록',chunwon:'충원발표'};
+  const typeGroups=[
+    {key:'wonser',label:'원서접수',color:'#1565c0',bg:'rgba(21,101,192,.08)',badge:'b-wonser'},
+    {key:'silgi',label:'실기고사',color:'#c62828',bg:'rgba(229,57,53,.08)',badge:'b-silgi'},
+    {key:'balpyo',label:'합격자발표',color:'#2e7d32',bg:'rgba(46,125,50,.08)',badge:'b-balpyo'},
+  ];
 
-  const groups={};
-  items.forEach(d=>{
-    const dt=getTypeDate(d,type);
-    if(!dt||dt==='미정') return;
-    if(!groups[dt]) groups[dt]=[];
-    groups[dt].push(d);
-  });
+  const MN=['','1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
 
-  const MONTH_KR={'09':'9월','10':'10월','11':'11월','12':'12월','01':'1월'};
-  const monthGroups={};
-  Object.keys(groups).sort().forEach(dt=>{
-    const m=dt.slice(5,7);
-    if(!monthGroups[m]) monthGroups[m]=[];
-    monthGroups[m].push(dt);
-  });
+  let html='<div style="display:flex;flex-direction:column;gap:48px">';
 
-  let html='';
-  Object.keys(monthGroups).sort().forEach(m=>{
-    const dts=monthGroups[m];
-    const total=dts.reduce((s,dt)=>s+groups[dt].length,0);
-    html+=`<div class=timeline-month>
-      <div class=timeline-month-label>${MONTH_KR[m]||m+'월'} <span>${total}개 일정</span></div>`;
-    dts.forEach(dt=>{
-      const dow=getDow(dt);
-      const weekend=isWeekend(dt);
-      html+=`<div class=timeline-day>
-        <div class=timeline-day-label>
-          ${fmt(dt)} <span class="dow${weekend?' weekend':''}">${dow}</span>
-        </div>
-        <div class=timeline-events>`;
-      groups[dt].forEach(d=>{
-        const time=type==='silgi'?d.실기시간_시작:type==='myeon'?d.면접시간_시작:null;
-        html+=`<div class=tl-event>
-          <div class=tl-event-type><span class="badge b-${type}">${typeLabel[type]}</span></div>
-          <div>
-            <div class=tl-event-univ>${d.대학명}</div>
-            <div class=tl-event-dept>${d.모집단위}</div>
-            ${time&&time!=='미정'?`<div class=tl-event-time>${time}</div>`:''}
-          </div>
-        </div>`;
-      });
-      html+='</div></div>';
+  typeGroups.forEach(tg=>{
+    // 해당 유형 날짜별 맵
+    const evtMap={};
+    items.forEach(d=>{
+      const dt=getTypeDate(d,tg.key);
+      if(!dt||dt==='미정') return;
+      if(!evtMap[dt]) evtMap[dt]=[];
+      evtMap[dt].push(d);
     });
-    html+='</div>';
+
+    const allDates=Object.keys(evtMap).sort();
+    if(allDates.length===0) return;
+
+    // 섹션 헤더
+    html+=`<div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid ${tg.color}">
+        <span class="badge ${tg.badge}" style="font-size:12px;padding:4px 12px">${tg.label}</span>
+        <span style="font-size:12px;color:var(--ink3)">${allDates.reduce((s,dt)=>s+evtMap[dt].length,0)}개 일정</span>
+      </div>`;
+
+    // 월별 달력
+    const months={};
+    allDates.forEach(dt=>{
+      const ym=dt.slice(0,7);
+      if(!months[ym]) months[ym]=[];
+      months[ym].push(dt);
+    });
+
+    html+='<div style="display:flex;flex-direction:column;gap:28px">';
+
+    Object.keys(months).sort().forEach(ym=>{
+      const [yr,mn]=ym.split('-');
+      const monthInt=parseInt(mn);
+      const firstDay=new Date(parseInt(yr),monthInt-1,1).getDay();
+      const lastDate=new Date(parseInt(yr),monthInt,0).getDate();
+      const evtDates=new Set(months[ym].map(dt=>parseInt(dt.slice(8,10))));
+      const monthEvtCount=months[ym].reduce((s,dt)=>s+evtMap[dt].length,0);
+
+      html+=`<div>
+        <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:10px">${yr}년 ${MN[monthInt]} <span style="font-size:11px;font-weight:400;color:var(--ink3)">${monthEvtCount}개</span></div>
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px">
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);border-bottom:1px solid var(--border)">
+            ${['일','월','화','수','목','금','토'].map((d,i)=>`<div style="text-align:center;padding:8px 0;font-size:11px;font-weight:700;color:${i===0?'#e53935':i===6?'#1565c0':'var(--ink3)'}">${d}</div>`).join('')}
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr)">`;
+
+      for(let i=0;i<firstDay;i++){
+        html+=`<div style="min-height:72px;padding:5px;border-right:0.5px solid #f0f0f0;border-bottom:0.5px solid #f0f0f0;background:#fafafa"></div>`;
+      }
+
+      for(let day=1;day<=lastDate;day++){
+        const dow=(firstDay+day-1)%7;
+        const isWknd=dow===0||dow===6;
+        const dtStr=`${yr}-${mn}-${String(day).padStart(2,'0')}`;
+        const evts=evtMap[dtStr]||[];
+        const hasEvt=evts.length>0;
+        const isLast=(firstDay+day-1)%7===6||day===lastDate;
+
+        html+=`<div style="min-height:72px;padding:5px;border-right:${isLast?'none':'0.5px solid #f0f0f0'};border-bottom:0.5px solid #f0f0f0">
+          <div style="font-size:12px;font-weight:${hasEvt?'700':'400'};color:${dow===0?'#e53935':dow===6?'#1565c0':'var(--ink)'};margin-bottom:3px">${day}</div>`;
+
+        evts.slice(0,2).forEach(d=>{
+          html+=`<div style="font-size:9.5px;background:${tg.bg};color:${tg.color};border-radius:3px;padding:2px 4px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4" title="${d.대학명}">${d.대학명}</div>`;
+        });
+        if(evts.length>2){
+          html+=`<div style="font-size:9.5px;color:var(--ink3);padding:1px 3px">+${evts.length-2}</div>`;
+        }
+        html+=`</div>`;
+      }
+
+      const remaining=(7-((firstDay+lastDate)%7))%7;
+      for(let i=0;i<remaining;i++){
+        html+=`<div style="min-height:72px;padding:5px;border-right:${i<remaining-1?'0.5px solid #f0f0f0':'none'};border-bottom:0.5px solid #f0f0f0;background:#fafafa"></div>`;
+      }
+
+      html+=`</div></div>`;
+
+      // 달력 아래 목록 - 접힌 상태로 시작
+      const listId=`list-${tg.key}-${ym}`;
+      html+=`<div>
+        <button onclick="toggleList('${listId}')" style="width:100%;text-align:left;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:9px 14px;font-size:12px;font-family:inherit;cursor:pointer;color:var(--ink2);display:flex;align-items:center;justify-content:space-between;transition:.15s" id="btn-${listId}">
+          <span>${MN[monthInt]} 상세 목록 (${monthEvtCount}개)</span>
+          <span id="arrow-${listId}" style="transition:.2s;display:inline-block">▼</span>
+        </button>
+        <div id="${listId}" style="display:none;margin-top:6px;display:none;flex-direction:column;gap:5px">`;
+
+      months[ym].forEach(dt=>{
+        const dow=getDow(dt);
+        const weekend=isWeekend(dt);
+        evtMap[dt].forEach(d=>{
+          const time=tg.key==='silgi'?d.실기시간_시작:tg.key==='myeon'?d.면접시간_시작:null;
+          html+=`<div style="background:var(--card);border:1px solid var(--border);border-radius:7px;padding:10px 14px;display:flex;gap:12px;align-items:flex-start">
+            <div style="min-width:90px;flex-shrink:0">
+              <div style="font-size:11px;font-weight:700;color:${weekend?'var(--red)':'var(--ink2)'}">${fmt(dt)} (${dow})</div>
+              ${time&&time!=='미정'?`<div style="font-size:11px;color:var(--ink3);margin-top:2px">${time}</div>`:''}
+            </div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--ink)">${d.대학명}</div>
+              <div style="font-size:12px;color:var(--ink2);line-height:1.5">${d.모집단위}</div>
+              ${d.전형명?`<div style="font-size:11px;color:var(--ink3);margin-top:1px">${d.전형명}</div>`:''}
+            </div>
+          </div>`;
+        });
+      });
+
+      html+=`</div></div>`;
+      html+=`</div>`;
+    });
+
+    html+=`</div></div>`;
   });
 
-  if(!html) html='<div class=no-result>일정 유형을 선택해주세요</div>';
+  html+='</div>';
   document.getElementById('container').innerHTML=html;
 }
+
+function toggleList(id){
+  const el=document.getElementById(id);
+  const btn=document.getElementById('btn-'+id);
+  const arrow=document.getElementById('arrow-'+id);
+  const isOpen=el.style.display==='flex';
+  el.style.display=isOpen?'none':'flex';
+  el.style.flexDirection='column';
+  el.style.gap='5px';
+  arrow.style.transform=isOpen?'rotate(0deg)':'rotate(180deg)';
+  btn.style.background=isOpen?'var(--bg)':'var(--card)';
+}
+
 
 render();
 </script>
