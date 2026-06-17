@@ -104,6 +104,7 @@ section{margin-bottom:48px}
 .compare-table tr:last-child td{border-bottom:none}
 .compare-table tr:hover td{background:#f0f7ff}
 .compare-table td:first-child{font-weight:700;color:var(--navy2);white-space:nowrap;background:#f8f7f5}
+.compare-table tr.group-head td{background:#e8edf5;color:#1a3a5c;font-size:11px;font-weight:800;letter-spacing:.5px;padding:6px 14px}
 
 
 .schedule-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -263,34 +264,66 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
         </tr>
       </thead>
       <tbody>
+
+        <!-- ▸ 학교 기본 정보 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 학교 기본 정보</td></tr>
         <tr><td>설립</td><td><span class="badge badge-pub">공립</span></td><td><span class="badge badge-pri">사립</span></td><td><span class="badge badge-pub">공립</span></td></tr>
-        <tr><td>위치</td><td>부산 동래구</td><td>부산 금정구 구서동</td><td>부산 북구 만덕동</td></tr>
-        <tr><td>실기종목</td><td>정물소묘 / 정밀묘사 / 정물수채 <mark>택1</mark></td><td>정밀묘사 / 정물소묘 / 정물수채 <mark>택1</mark></td><td>정물소묘 <mark>4종 필수</mark></td></tr>
-        <tr><td>용지</td><td>4절 켄트지</td><td>4절 켄트지</td><td>4절 켄트지</td></tr>
-        <tr><td>시험시간</td><td>3시간 30분</td><td>4시간</td><td>3시간</td></tr>
-        <tr><td>과제 공고</td><td>고사 <mark>4일 전</mark> 공고<br>10종→5종+조건</td><td>원서 접수 기간 중 발표</td><td>고사 <mark>2일 전</mark> 공고<br>군별 정물 선택</td></tr>
-        <tr><td>전형 비율</td>
-          <td>
-            내신 <strong>30%</strong><br>
-            실기 <strong>70%</strong><br>
-            <span style="font-size:11px;color:#777">반영교과: 국어·영어·수학·사회·과학 + 출결·봉사 등</span>
-          </td>
-          <td>
-            학생부 <strong>40%</strong> (200점)<br>
-            &nbsp;├ 교과 36% (180점)<br>
-            &nbsp;└ 출결 4% (20점)<br>
-            실기 <strong>60%</strong> (300점)<br>
-            합계 500점
-          </td>
-          <td>
-            교과성적 <strong>60%</strong><br>
-            출결 <strong>10%</strong><br>
-            실기 <strong>30%</strong> (120점)<br>
-            합계 100%
-          </td>
+        <tr><td>위치</td><td>부산 금정구 체육공원로 20</td><td>부산 금정구 체육공원로 154</td><td>부산 남구 동명로169번길 38</td></tr>
+        <tr><td>전화</td><td>051-514-1229</td><td>051-513-9710</td><td>051-620-2700</td></tr>
+        <tr><td>홈페이지</td><td>pusanarts.hs.kr</td><td>penielart.or.kr</td><td>adk.hs.kr</td></tr>
+        <tr><td>미술과 정원</td><td>111명 (3학급)</td><td>70~90명 (2학급)</td><td>160명 (8학급 · 디자인·공예 통합)</td></tr>
+
+        <!-- ▸ 전형 비율 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 전형 비율 (미술과)</td></tr>
+        <tr><td>내신 비중</td>
+          <td><strong>50%</strong> (200점)<br><span style="font-size:11px;color:#777">교과 45%(180) + 출결 5%(20)</span></td>
+          <td><strong>40%</strong> (200점)<br><span style="font-size:11px;color:#777">교과 36%(180) + 출결 4%(20)</span></td>
+          <td><strong style="color:#c62828">70%</strong> (280점)<br><span style="font-size:11px;color:#777">교과 60%(240) + 출결 10%(40)</span></td>
         </tr>
-        <tr><td>이젤·화판</td><td>개인 지참</td><td>개인 지참</td><td>학교 제공</td></tr>
-        <tr><td>특이사항</td><td>브랜드·디자인 변경 가능<br>실루엣만 사전 공개</td><td>세부전공 구분 없음<br>기숙사 운영</td><td>전동지우개 불가<br>배경 생략 가능</td></tr>
+        <tr><td>실기 비중</td>
+          <td><strong>50%</strong> (200점)</td>
+          <td><strong style="color:#e65100">60%</strong> (300점)</td>
+          <td><strong>30%</strong> (120점)</td>
+        </tr>
+        <tr><td>합계 배점</td><td>400점</td><td>500점</td><td>400점</td></tr>
+        <tr><td>내신 반영 교과</td><td colspan=3 style="color:#555">국어 · 사회(역사·도덕 중 최상) · 수학 · 과학 · 영어 <strong>5개 교과 공통</strong></td></tr>
+        <tr><td>우선 선발</td>
+          <td>내신 상위 <strong>30%</strong> 우선 선발<br><span style="font-size:11px;color:#777">(실기 반드시 응시)</span></td>
+          <td>교과성적 상위 <strong>10명</strong> 이내</td>
+          <td>없음</td>
+        </tr>
+        <tr><td>실기 배제 기준</td>
+          <td>200점 중 <strong>120점 미만</strong></td>
+          <td>100점 중 <strong>63점 이하</strong></td>
+          <td>별도 없음 (미응시 시 불합격)</td>
+        </tr>
+
+        <!-- ▸ 실기고사 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 실기고사</td></tr>
+        <tr><td>실기종목</td>
+          <td>연필 기물소묘 <mark>1종 고정</mark></td>
+          <td>정밀묘사 / 정물소묘 / 정물수채 <mark>택1</mark></td>
+          <td>정물소묘 <mark>4종 필수</mark></td>
+        </tr>
+        <tr><td>용지</td><td>4절지</td><td>4절 켄트지</td><td>4절 켄트지</td></tr>
+        <tr><td>시험시간</td><td>3시간 30분</td><td>4시간</td><td>3시간</td></tr>
+        <tr><td>이젤·화판</td><td>학교 제공</td><td>개인 지참</td><td>학교 제공</td></tr>
+        <tr><td>과제 공고</td>
+          <td>고사 전 공고<br><span style="font-size:11px;color:#777">10종 제시 → 4~6종+조건 출제</span></td>
+          <td>원서 접수 기간 중 발표</td>
+          <td>고사 <mark>2일 전</mark> 공고<br><span style="font-size:11px;color:#777">3군 조합 → 4종 확정</span></td>
+        </tr>
+
+        <!-- ▸ 학교 특징 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 학교 특징</td></tr>
+        <tr><td>기숙사</td><td>없음</td><td>있음</td><td>있음 (72명, 타시도 우선)</td></tr>
+        <tr><td>전공 구성</td><td>음악·미술·무용과 (전국 모집)</td><td>음악·미술·무용과 (전국 모집)</td><td>디자인·공예 통합 (1학년) → 2학년 전공 선택</td></tr>
+        <tr><td>이런 학생에게</td>
+          <td>내신+실기 균형 잡힌 학생</td>
+          <td>실기 강점, 종목 선택 유리한 학생</td>
+          <td>내신 우수 + 디자인·공예 지망 학생</td>
+        </tr>
+
       </tbody>
     </table>
   </div>
@@ -309,37 +342,40 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
       <div>
         <div class=col-head>
           <div class=col-head-name>🎨 부산예술고등학교</div>
-          <div class=col-head-sub>공립 · 동래구 · 2027학년도</div>
+          <div class=col-head-sub>공립 · 금정구 · 2026학년도</div>
         </div>
         <div class=col-body>
           <div class=info-block>
             <div class=info-title>실기고사 개요</div>
             <table class=gt>
-              <tr><td>종목</td><td>정밀묘사 / 정물소묘 / 정물수채 중 <strong>택1</strong></td></tr>
-              <tr><td>용지</td><td>4절 켄트지</td></tr>
+              <tr><td>종목</td><td>연필 기물소묘 <strong>(1종)</strong></td></tr>
+              <tr><td>용지</td><td>4절지</td></tr>
               <tr><td>시간</td><td>3시간 30분</td></tr>
+              <tr><td>준비물</td><td>연필, 지우개, 칼 등 소묘 도구 (화지·화판·이젤·이젤꽂이는 학교 제공)</td></tr>
+              <tr><td>전동지우개</td><td>사용 금지</td></tr>
               <tr><td>전형비율</td><td>
-                내신 <strong>30%</strong> + 실기 <strong>70%</strong> = 100%<br>
-                <span style="color:#777;font-size:11px">2027학년도 미술과 기준</span>
+                내신 <strong>50%</strong> (200점) + 실기 <strong>50%</strong> (200점) = 400점<br>
+                <span style="color:#777;font-size:11px">교과성적 45%(180점) + 출결 5%(20점)</span>
               </td></tr>
               <tr><td>내신 반영</td><td>
-                국어·영어·수학·사회(역사 포함)·과학<br>
-                출결·봉사활동·학교생활 태도 등 생활기록부 내용도 반영
+                국어·사회·수학·과학·영어 (5개 교과)<br>
+                <span style="color:#777;font-size:11px">사회교과: 사회·역사·도덕 중 성취도 상위 1과목 반영</span>
               </td></tr>
-              <tr><td>실기 배제</td><td>실기고사 <strong>72점 미만</strong> 시 불합격 (미술과)</td></tr>
-              <tr><td>과제공고</td><td>고사 <mark>4일 전</mark> 학교 홈페이지<br>10종 → 5종+화지방향 공고</td></tr>
-              <tr><td>브랜드</td><td>일부 변경 가능, 내용물 함께 출제 가능</td></tr>
-              <tr><td>실루엣</td><td>실제 정물과 유사 형태만 공개<br>추가 정보 없음</td></tr>
+              <tr><td>실기 배제</td><td>실기고사 200점 만점 중 <strong>120점 미만</strong> 시 불합격</td></tr>
+              <tr><td>과제공고</td><td>고사 전 학교 홈페이지<br>정물군 10개 제시 → 4~6개 선택 출제</td></tr>
+              <tr><td>모집인원</td><td>미술과 111명 (3학급)</td></tr>
+              <tr><td>우선선발</td><td>내신 성적 상위 <strong>30%</strong> 우선 선발 (실기 응시 필수)</td></tr>
             </table>
           </div>
           <div class=info-block>
-            <div class=info-title>2027 후보 기물 10종</div>
+            <div class=info-title>2027학년도 후보 기물 10종 <span style="background:#e8f5e9;color:#1b5e20;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700">공식 공고</span></div>
             <div class=gimul-wrap>
-              <span class=gimul>주전자</span><span class=gimul>도자기</span><span class=gimul>축구공</span>
+              <span class=gimul>주전자</span><span class=gimul>도자기</span><span class=gimul>공</span>
               <span class=gimul>손가방</span><span class=gimul>곰인형</span><span class=gimul>화분류</span>
               <span class=gimul>캡모자</span><span class=gimul>체크천</span><span class=gimul>전구</span>
               <span class=gimul>고무장갑</span>
             </div>
+            <div class=ib style="margin-top:8px">평가일 <strong>4일 전</strong> 10종 중 출제될 5종과 조건(화지 방향 포함)을 학교 홈페이지에 발표. 브랜드·디자인 일부 변경 가능, 기물 내용물과 함께 출제될 수 있음.</div>
           </div>
           <div class=info-block>
             <div class=info-title>평가기준</div>
@@ -354,7 +390,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
           <div class=info-block>
             <div class=info-title>준비 포인트</div>
             <div class=ib>
-              수채 선택 시 채점에서 색감·농도 통제력도 봅니다. 본인 강점 종목으로 준비하세요.
+              미술과는 <strong>내신 50%+실기 50%</strong>로 내신도 매우 중요합니다. 내신 상위 30%는 우선 선발 대상. 평소 교과 관리와 실기를 함께 준비하세요.
             </div>
           </div>
         </div>
@@ -366,7 +402,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
       <div>
         <div class=col-head style="background:#1a3a5c">
           <div class=col-head-name>🎨 브니엘예술고등학교</div>
-          <div class=col-head-sub>사립 · 금정구 구서동 · 2027학년도</div>
+          <div class=col-head-sub>사립 · 금정구 구서동 · 2026학년도</div>
         </div>
         <div class=col-body>
           <div class=info-block>
@@ -374,28 +410,20 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
             <table class=gt>
               <tr><td>학과</td><td>미술과 (세부전공 구분 없음)</td></tr>
               <tr><td>전형비율</td><td>
-                내신 <strong>30%</strong> + 실기 <strong>70%</strong> = 100%<br>
-                <span style="color:#777;font-size:11px">2027학년도 미술과 기준</span>
-              </td></tr>
-              <tr><td>내신 반영</td><td>
-                국어·영어·수학·사회(역사 포함)·과학<br>
-                출결·봉사활동·학교생활 태도 등 생활기록부 내용도 반영
-              </td></tr>
-              <tr><td>실기 배제</td><td>실기고사 <strong>72점 미만</strong> 시 불합격 (미술과)</td></tr>
-              <tr><td>전형비율</td><td>
                 학생부 <strong>40%</strong> (200점) + 실기 <strong>60%</strong> (300점) = 500점 만점<br>
-                <span style="color:#777;font-size:11px">학생부: 교과성적 36%(180점) + 출결 4%(20점)</span>
+                <span style="color:#777;font-size:11px">교과성적 36%(180점) + 출결 4%(20점)</span>
               </td></tr>
               <tr><td>내신 반영</td><td>
-                국어·사회·수학·과학·영어 5개 교과<br>
-                <span style="color:#777;font-size:11px">학기별 과목별 성취도 반영, 출결 별도 20점 반영</span>
+                국어·사회·수학·과학·영어 (5개 교과)<br>
+                <span style="color:#777;font-size:11px">사회교과: 사회 영역(역사·도덕 포함) 중 가장 좋은 성적 반영</span>
               </td></tr>
-              <tr><td>실기 배제</td><td>300점 만점 중 <strong>72점 미만</strong> 시 불합격 (미술과)</td></tr>
-              <tr><td>실기 종목</td><td>정물소묘 · 정물수채 · 정밀소묘 중 <strong>택1</strong> (300점)</td></tr>
-              <tr><td>종목</td><td>아래 3종 중 <strong>택1</strong></td></tr>
+              <tr><td>실기 배제</td><td>100점 만점 중 <strong>63점 이하</strong> 시 불합격 (미술과)</td></tr>
+              <tr><td>실기 종목</td><td>아래 3종 중 <strong>택1</strong> (300점)</td></tr>
               <tr><td>용지</td><td>4절 켄트지</td></tr>
               <tr><td>시간</td><td>4시간</td></tr>
               <tr><td>과제공고</td><td>원서 접수 기간 중 발표</td></tr>
+              <tr><td>모집인원</td><td>미술과 70~90명 (2학급)</td></tr>
+              <tr><td>우선선발</td><td>미술과: 교과 성적 상위 <strong>10명</strong> 이내 우선 선발</td></tr>
             </table>
           </div>
           <div class=info-block>
@@ -420,6 +448,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
             <div class=steps>
               <div class=step><div class=step-num>!</div><div>이젤, 화판, 화지 이외 용구는 반드시 <b>개인 지참</b></div></div>
               <div class=step><div class=step-num>!</div><div>소재·주제는 원서 접수 기간 중 발표</div></div>
+              <div class=step><div class=step-num>!</div><div>실기 배제: 100점 만점 중 <b>63점 이하</b> 불합격 (정원 미달 시도 적용)</div></div>
             </div>
           </div>
           <div class=info-block>
@@ -440,7 +469,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
       <div>
         <div class=col-head style="background:#1b5e20">
           <div class=col-head-name>🎨 한국조형예술고등학교</div>
-          <div class=col-head-sub>공립 · 북구 만덕동 · 2027학년도</div>
+          <div class=col-head-sub>공립 · 남구 용호동 · 2026학년도</div>
         </div>
         <div class=col-body>
           <div class=info-block>
@@ -448,8 +477,8 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
             <table class=gt>
               <tr><td>종목</td><td>정물 소묘 <strong>(4종 모두 그려야 함)</strong></td></tr>
               <tr><td>전형비율</td><td>
-                교과성적 <strong>60%</strong> + 출결 <strong>10%</strong> + 실기 <strong>30%</strong> (120점) = 100%<br>
-                <span style="color:#777;font-size:11px">모집인원 160명 (일반전형 152명 · 사회통합 8명) / 2026학년도 기준</span>
+                교과성적 <strong>60%</strong> (240점) + 출결 <strong>10%</strong> (40점) + 실기 <strong>30%</strong> (120점) = 400점<br>
+                <span style="color:#777;font-size:11px">모집인원 160명 / 2026학년도 기준</span>
               </td></tr>
               <tr><td>모집인원</td><td>
                 정원 내 160명 (일반 152 + 사회통합 8)<br>
@@ -467,7 +496,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
             </table>
           </div>
           <div class=info-block>
-            <div class=info-title>출제 정물 군 (2027)</div>
+            <div class=info-title>출제 정물 군 (2027) <span style="background:#e8f5e9;color:#1b5e20;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700">공식 공고</span></div>
             <table class=gun-table>
               <tr><th>군</th><th>정물 종류</th></tr>
               <tr><td>1군 (5종)</td><td>플라스틱 낮은 의자, 작업용 장화, 접보물 휴지, 밀짚모자, 양은 주전자</td></tr>
@@ -482,7 +511,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
               <div class=step><div class=step-num>✓</div><div>디자인·공예 특화 예고 (순수미술보다 디자인·공예 중심)</div></div>
               <div class=step><div class=step-num>✓</div><div>목공예·도예(물레·가마) 전문 시설</div></div>
               <div class=step><div class=step-num>✓</div><div>이젤·화판 제공 → 재료 부담 없음</div></div>
-              <div class=step><div class=step-num>!</div><div>2027 요강 7월 중 승인 완료 후 공고 예정</div></div>
+              <div class=step><div class=step-num>✓</div><div>사회통합전형 8명 별도 선발 (기회균등 포함)</div></div>
             </div>
           </div>
         </div>
@@ -495,37 +524,37 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
 <!-- ══ S2: 일정 ══ -->
 <section id=s2>
   <div class=section-header>
-    <h2>2027학년도 입시 일정 (참고)</h2>
+    <h2>2026학년도 입시 일정</h2>
   </div>
-  <div class=wb>예년 기준 참고용입니다. 정확한 일정은 각 학교·부산시교육청 고입포털에서 확인하세요.</div>
+  <div class=wb>2026학년도 공식 요강 기준입니다. 정확한 일정은 각 학교·부산시교육청 고입포털에서 확인하세요.</div>
   <div class=schedule-grid>
     <div class=sched-card>
-      <div class=sc-month>2026. 07 ~ 08</div>
+      <div class=sc-month>2025. 07</div>
       <div class=sc-title>요강 공고</div>
-      <div class=sc-item><div class=sc-dot></div>각 학교 모집요강 홈페이지 공고</div>
-      <div class=sc-item><div class=sc-dot></div>조형예고 2027 요강 7월 중 공고 예정</div>
+      <div class=sc-item><div class=sc-dot></div>각 학교 2026학년도 모집요강 공고</div>
       <div class=sc-item><div class=sc-dot></div>모집 인원·전형 방법 확인</div>
+      <div class=sc-item><div class=sc-dot></div>부산예고·브니엘·조형예고 요강 확인</div>
     </div>
     <div class=sched-card>
-      <div class=sc-month>2026. 09 ~ 10</div>
+      <div class=sc-month>2025. 10. 20 ~ 23</div>
       <div class=sc-title>원서 접수</div>
-      <div class=sc-item><div class=sc-dot></div>원서 접수 기간</div>
+      <div class=sc-item><div class=sc-dot></div>3개교 공통: 10.20(월) ~ 10.23(목) 17:00</div>
       <div class=sc-item><div class=sc-dot></div>브니엘예고 실기 소재·주제 이 기간 중 발표</div>
-      <div class=sc-item><div class=sc-dot></div>1단계 서류 심사 (해당 학교)</div>
+      <div class=sc-item><div class=sc-dot></div>전형료 25,000원 (각 학교 행정실)</div>
     </div>
     <div class=sched-card>
-      <div class=sc-month>2026. 11</div>
+      <div class=sc-month>2025. 10. 29 ~ 31</div>
       <div class=sc-title>실기고사</div>
-      <div class=sc-item><div class=sc-dot></div>부산예고 — 고사 4일 전 5종+조건 공고</div>
-      <div class=sc-item><div class=sc-dot></div>조형예고 — 고사 2일 전 군별 공고</div>
-      <div class=sc-item><div class=sc-dot></div>실기고사 실시</div>
+      <div class=sc-item><div class=sc-dot></div>조형예고: 10.29(수) 14:00~17:00</div>
+      <div class=sc-item><div class=sc-dot></div>부산예고: 10.30(목)</div>
+      <div class=sc-item><div class=sc-dot></div>브니엘: 미술 10.30(목) / 음악·무용 10.31(금)</div>
     </div>
     <div class=sched-card>
-      <div class=sc-month>2026. 12</div>
+      <div class=sc-month>2025. 11. 5</div>
       <div class=sc-title>합격자 발표</div>
-      <div class=sc-item><div class=sc-dot></div>최종 합격자 발표</div>
-      <div class=sc-item><div class=sc-dot></div>등록 기간</div>
-      <div class=sc-item><div class=sc-dot></div>예비 합격자 충원</div>
+      <div class=sc-item><div class=sc-dot></div>3개교 공통: 11.5(수) 10:00</div>
+      <div class=sc-item><div class=sc-dot></div>각 학교 홈페이지 게재</div>
+      <div class=sc-item><div class=sc-dot></div>입학 등록: 12.15(월) ~ 12.17(수)</div>
     </div>
   </div>
 </section>
@@ -548,7 +577,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
       </ul>
     </div>
     <div class=tip-card>
-      <h4>🎨 수채 포인트 (부산예고·브니엘 대비)</h4>
+      <h4>🎨 수채 포인트 (브니엘 대비)</h4>
       <ul>
         <li>물의 양 조절 — 번짐 없이 채도 유지</li>
         <li>밑색 → 중간색 → 어두운 색 순서로 진행</li>
@@ -583,9 +612,9 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
       <h4>🎒 당일 준비물 체크</h4>
       <ul>
         <li><b>공통</b>: 연필 (H~4B 다양하게), 지우개, 칼</li>
-        <li><b>부산예고·브니엘</b>: 이젤, 화판, 화지 개인 지참</li>
-        <li><b>조형예고</b>: 연필·지우개만, 이젤·화판 학교 제공</li>
-        <li>수채 선택 시: 팔레트, 붓(다양한 크기), 물통, 물감</li>
+        <li><b>부산예고·조형예고</b>: 이젤·화판 학교 제공 (연필·지우개만)</li>
+        <li><b>브니엘예고</b>: 이젤, 화판, 화지 개인 지참</li>
+        <li>수채 선택 시 (브니엘): 팔레트, 붓(다양한 크기), 물통, 물감</li>
         <li>여분 연필심·지우개 필수</li>
         <li>수험표·신분증 꼭 챙길 것</li>
       </ul>
@@ -593,10 +622,10 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
     <div class=tip-card>
       <h4>🏫 학교 선택 포인트</h4>
       <ul>
-        <li><b>부산예고</b>: 공립 명문, 미술 전반 — 대입 실기 대비에 강점</li>
-        <li><b>브니엘예고</b>: 사립, 기숙사 — 음악·무용과 함께하는 예술 환경</li>
-        <li><b>조형예고</b>: 디자인·공예 특화 — 해당 분야 지망자에게 최적</li>
-        <li>택1 가능한 학교는 강점 종목으로 승부</li>
+        <li><b>부산예고</b>: 공립 명문, 내신+실기 50:50 — 균형 잡힌 학생에게 유리</li>
+        <li><b>브니엘예고</b>: 사립, 기숙사 — 실기 중시, 택1 전공으로 강점 승부</li>
+        <li><b>조형예고</b>: 디자인·공예 특화, 내신 70% — 해당 분야 지망자에게 최적</li>
+        <li>택1 가능한 학교(브니엘)는 본인 강점 종목으로 승부</li>
         <li>브니엘 진학평가 실기대회 참가로 사전 실력 점검</li>
       </ul>
     </div>
@@ -627,37 +656,44 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
         </div>
         <div class=col-body>
           <div class=info-block>
-            <div class=info-title>전형 비율 (2027학년도)</div>
+            <div class=info-title>전형 비율 (2026학년도)</div>
             <table class=gt>
-              <tr><td>실기고사</td><td><strong>70%</strong></td></tr>
-              <tr><td>내신성적</td><td><strong>30%</strong></td></tr>
-              <tr><td>내신 반영 교과</td><td>국어·영어·수학·사회(역사포함)·과학 + 출결·봉사·생활기록부</td></tr>
-              <tr><td>실기 불합격선</td><td>실기 <strong>72점 미만</strong> 시 불합격</td></tr>
+              <tr><td>내신성적</td><td><strong>50%</strong> (200점)</td></tr>
+              <tr><td>&nbsp;├ 교과성적</td><td>45% (180점)</td></tr>
+              <tr><td>&nbsp;└ 출결성적</td><td>5% (20점)</td></tr>
+              <tr><td>실기고사</td><td><strong>50%</strong> (200점)</td></tr>
+              <tr><td>합계</td><td>400점 만점</td></tr>
+              <tr><td>내신 반영 교과</td><td>국어·사회·수학·과학·영어 (5개 교과)<br><span style="color:#777;font-size:11px">사회교과: 사회·역사·도덕 중 성취도 상위 1과목</span></td></tr>
+              <tr><td>실기 불합격선</td><td>실기 <strong>120점 미만</strong> 시 불합격</td></tr>
+              <tr><td>우선선발</td><td>내신 상위 <strong>30%</strong> 우선 선발 (실기 응시 필수)</td></tr>
             </table>
           </div>
           <div class=info-block>
-            <div class=info-title>모집 규모</div>
+            <div class=info-title>모집 규모 (2026학년도)</div>
             <table class=gt>
-              <tr><td>전체 학생 수</td><td>약 1,018명 (3개 과 전체)</td></tr>
-              <tr><td>미술과 학급</td><td>학년당 약 40명 수준 (전체 정원 10% 내외)</td></tr>
-              <tr><td>모집 방식</td><td>전국 단위 모집 / 전기 전형</td></tr>
+              <tr><td>미술과 정원</td><td>111명 (3학급)</td></tr>
+              <tr><td>음악과 정원</td><td>180명 (5학급)</td></tr>
+              <tr><td>무용과 정원</td><td>39명 (1학급)</td></tr>
+              <tr><td>전체 모집</td><td>전국 단위 / 전기 전형</td></tr>
             </table>
           </div>
           <div class=info-block>
             <div class=info-title>합격 경향 (참고)</div>
             <div class=steps>
-              <div class=step><div class=step-num>📌</div><div>실기 비중이 70%로 압도적 — <b>실기력이 당락 결정</b></div></div>
-              <div class=step><div class=step-num>📌</div><div>내신도 30% 반영 — 중학교 주요 교과 관리 필요</div></div>
-              <div class=step><div class=step-num>📌</div><div>입학 후 미술과 내 내신 경쟁 치열 — 미술과 학생들이 교내 성적 상위권</div></div>
-              <div class=step><div class=step-num>📌</div><div>부산예중 출신 비율 높지만 타 중학교 출신도 다수 합격</div></div>
+              <div class=step><div class=step-num>📌</div><div>실기·내신 각 <b>50%</b> 동등 — 내신 관리 필수</div></div>
+              <div class=step><div class=step-num>📌</div><div>내신 상위 30% 우선 선발 제도 활용 가능</div></div>
+              <div class=step><div class=step-num>📌</div><div>실기 120점 미만 배제 — 기본 묘사력 갖춰야 함</div></div>
+              <div class=step><div class=step-num>📌</div><div>연필 기물소묘 1종 (택1 없음) — 집중 준비 가능</div></div>
             </div>
           </div>
           <div class=info-block>
-            <div class=info-title>2026학년도 입시 일정 (참고)</div>
+            <div class=info-title>2026학년도 입시 일정</div>
             <table class=gt>
               <tr><td>원서 접수</td><td>2025.10.20 ~ 10.23</td></tr>
-              <tr><td>실기고사</td><td>2025.10.30</td></tr>
-              <tr><td>합격자 발표</td><td>2025.11.5 (10:00)</td></tr>
+              <tr><td>예비소집</td><td>2025.10.29(수) 14:00</td></tr>
+              <tr><td>실기고사</td><td>2025.10.30(목)</td></tr>
+              <tr><td>합격자 발표</td><td>2025.11.5(수) 10:00</td></tr>
+              <tr><td>입학 등록</td><td>2025.12.15 ~ 12.17</td></tr>
             </table>
           </div>
         </div>
@@ -673,7 +709,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
         </div>
         <div class=col-body>
           <div class=info-block>
-            <div class=info-title>전형 비율 (2025학년도 요강 기준)</div>
+            <div class=info-title>전형 비율 (2026학년도 요강 기준)</div>
             <table class=gt>
               <tr><td>학생부</td><td><strong>40%</strong> (200점)</td></tr>
               <tr><td>&nbsp;├ 교과성적</td><td>36% (180점)</td></tr>
@@ -681,16 +717,17 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
               <tr><td>실기고사</td><td><strong>60%</strong> (300점)</td></tr>
               <tr><td>합계</td><td>500점 만점</td></tr>
               <tr><td>내신 반영 교과</td><td>국어·사회·수학·과학·영어 (5개 교과)</td></tr>
-              <tr><td>실기 불합격선</td><td>300점 중 <strong>72점 미만</strong> 시 불합격</td></tr>
-              <tr><td>실기 종목</td><td>정물소묘·정물수채·정밀소묘 중 택1</td></tr>
+              <tr><td>실기 불합격선</td><td>100점 만점 중 <strong>63점 이하</strong> 시 불합격</td></tr>
+              <tr><td>실기 종목</td><td>정물소묘·정물수채·정밀묘사 중 택1</td></tr>
+              <tr><td>우선선발</td><td>미술과 교과성적 상위 <strong>10명</strong> 이내</td></tr>
             </table>
           </div>
           <div class=info-block>
-            <div class=info-title>모집 규모</div>
+            <div class=info-title>모집 규모 (2026학년도)</div>
             <table class=gt>
-              <tr><td>전체 학생 수</td><td>약 1,018명 (음악·미술·무용과)</td></tr>
-              <tr><td>미술과 규모</td><td>학년당 약 80명 수준</td></tr>
-              <tr><td>모집 방식</td><td>전국 단위 모집 / 전기 전형</td></tr>
+              <tr><td>미술과 정원</td><td>70~90명 (2학급)</td></tr>
+              <tr><td>음악과 정원</td><td>50~70명 (2학급)</td></tr>
+              <tr><td>무용과 정원</td><td>30~50명 (1학급)</td></tr>
               <tr><td>세부전공</td><td>구분 없이 모집 → 입학 후 세분화</td></tr>
             </table>
           </div>
@@ -698,17 +735,19 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
             <div class=info-title>합격 경향 (참고)</div>
             <div class=steps>
               <div class=step><div class=step-num>📌</div><div>실기 60% + 학생부 40% — 내신·출결도 중요</div></div>
-              <div class=step><div class=step-num>📌</div><div>5개 교과 반영 — 부산예고보다 내신 반영 폭 넓음</div></div>
+              <div class=step><div class=step-num>📌</div><div>실기 배제 63점 이하 — 3개교 중 배제 기준 수치 명확</div></div>
               <div class=step><div class=step-num>📌</div><div>브니엘예중 출신 비율 높음</div></div>
               <div class=step><div class=step-num>📌</div><div>기숙사 운영으로 원거리 학생 지원 많음</div></div>
             </div>
           </div>
           <div class=info-block>
-            <div class=info-title>2026학년도 입시 일정 (참고)</div>
+            <div class=info-title>2026학년도 입시 일정</div>
             <table class=gt>
               <tr><td>원서 접수</td><td>2025.10.20 ~ 10.23</td></tr>
-              <tr><td>실기고사</td><td>2025.10.30 (09:00)</td></tr>
-              <tr><td>합격자 발표</td><td>2025.11.5 (10:00)</td></tr>
+              <tr><td>예비소집(미술)</td><td>2025.10.30(목) 08:30</td></tr>
+              <tr><td>실기고사(미술)</td><td>2025.10.30(목) 09:00</td></tr>
+              <tr><td>합격자 발표</td><td>2025.11.5(수) 10:00</td></tr>
+              <tr><td>합격자 소집</td><td>2025.11.6(목) 14:00</td></tr>
             </table>
           </div>
         </div>
@@ -726,10 +765,10 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
           <div class=info-block>
             <div class=info-title>전형 비율 (2026학년도 요강 기준)</div>
             <table class=gt>
-              <tr><td>교과성적</td><td><strong>60%</strong></td></tr>
-              <tr><td>출결성적</td><td><strong>10%</strong></td></tr>
+              <tr><td>교과성적</td><td><strong>60%</strong> (240점)</td></tr>
+              <tr><td>출결성적</td><td><strong>10%</strong> (40점)</td></tr>
               <tr><td>실기고사</td><td><strong>30%</strong> (120점)</td></tr>
-              <tr><td>합계</td><td>100%</td></tr>
+              <tr><td>합계</td><td>400점 만점</td></tr>
               <tr><td>실기 종목</td><td>정물 소묘 (4종 필수)</td></tr>
               <tr><td>특이사항</td><td>내신·출결 합계 <span style="color:#c62828"><strong>70%</strong></span> — 3개교 중 내신 비중 최고</td></tr>
             </table>
@@ -737,27 +776,29 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
           <div class=info-block>
             <div class=info-title>모집 규모 (2026학년도)</div>
             <table class=gt>
-              <tr><td>정원 내</td><td>160명 (일반전형 152 + 사회통합 8)</td></tr>
+              <tr><td>정원 내</td><td>160명 (일반 152 + 사회통합 8)</td></tr>
               <tr><td>정원 외</td><td>7명 이내 (국가보훈 4 + 특례 3)</td></tr>
               <tr><td>학급 수</td><td>8학급</td></tr>
-              <tr><td>전공</td><td>디자인과 · 공예과 (공통 모집)</td></tr>
+              <tr><td>전공</td><td>디자인·공예 공통 모집 (2학년 진급 시 전공 선택)</td></tr>
             </table>
           </div>
           <div class=info-block>
             <div class=info-title>합격 경향 (참고)</div>
             <div class=steps>
               <div class=step><div class=step-num>📌</div><div><b>내신·출결 70%</b> — 평소 학교생활이 당락의 핵심</div></div>
-              <div class=step><div class=step-num>📌</div><div>실기 30%지만 배제 기준 있음 — 기본 실기력 필수</div></div>
-              <div class=step><div class=step-num>📌</div><div>디자인·공예 특화 — 순수미술보다 디자인 지망자에게 유리</div></div>
+              <div class=step><div class=step-num>📌</div><div>실기 30%지만 필수 응시 — 기본 묘사력 있어야 함</div></div>
+              <div class=step><div class=step-num>📌</div><div>사회통합전형 8명 별도 선발 (기회균등전형 포함)</div></div>
               <div class=step><div class=step-num>📌</div><div>160명 모집으로 3개교 중 가장 많음</div></div>
             </div>
           </div>
           <div class=info-block>
-            <div class=info-title>2026학년도 입시 일정 (참고)</div>
+            <div class=info-title>2026학년도 입시 일정</div>
             <table class=gt>
               <tr><td>원서 접수</td><td>2025.10.20 ~ 10.23</td></tr>
-              <tr><td>실기고사</td><td>2025.10.29 (14:00~17:00)</td></tr>
-              <tr><td>합격자 발표</td><td>2025.11.5 (10:00)</td></tr>
+              <tr><td>실기고사</td><td>2025.10.29(수) 14:00~17:00</td></tr>
+              <tr><td>합격자 발표</td><td>2025.11.5(수) 10:00</td></tr>
+              <tr><td>합격자 소집</td><td>2025.11.28(금) 14:00</td></tr>
+              <tr><td>입학 등록</td><td>2025.12.15 ~ 12.17</td></tr>
             </table>
           </div>
         </div>
@@ -781,13 +822,47 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
         </tr>
       </thead>
       <tbody>
-        <tr><td>실기 비중</td><td><strong style="color:#c62828">70%</strong></td><td><strong style="color:#e65100">60%</strong></td><td><strong>30%</strong></td></tr>
-        <tr><td>내신 비중</td><td>30%</td><td>40% (교과36+출결4)</td><td><strong style="color:#c62828">70%</strong> (교과60+출결10)</td></tr>
-        <tr><td>내신 반영 교과</td><td>국·영·수·사·과 + 생활기록부</td><td>국·사·수·과·영 (5과목)</td><td>전 교과 (성취도)</td></tr>
-        <tr><td>실기 불합격선</td><td>72점 미만</td><td>72점 미만 (300점 기준)</td><td>별도 공고</td></tr>
-        <tr><td>모집인원(미술)</td><td>약 40명/학년</td><td>약 80명/학년</td><td>160명 (디·공예 통합)</td></tr>
+
+        <!-- ▸ 내신 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 내신 성적</td></tr>
+        <tr><td>내신 비중</td><td><strong>50%</strong> (200점)</td><td>40% (200점)</td><td><strong style="color:#c62828">70%</strong> (280점)</td></tr>
+        <tr><td>&nbsp;├ 교과</td><td>45% (180점)</td><td>36% (180점)</td><td>60% (240점)</td></tr>
+        <tr><td>&nbsp;└ 출결</td><td>5% (20점)</td><td>4% (20점)</td><td>10% (40점)</td></tr>
+        <tr><td>반영 교과</td><td colspan=3 style="color:#444">국어 · 사회(역사·도덕 중 최상) · 수학 · 과학 · 영어 — 3개교 동일</td></tr>
+        <tr><td>학기별 반영<br><span style="font-size:10px;color:#777">(졸업예정자)</span></td>
+          <td>2학년1학기 30%<br>2학년2학기 30%<br>3학년1학기 40%</td>
+          <td>2학년1학기 25%<br>2학년2학기 25%<br>3학년1학기 50%</td>
+          <td>2학년1학기 30%<br>2학년2학기 30%<br>3학년1학기 40%</td>
+        </tr>
+        <tr><td>우선 선발</td>
+          <td>내신 상위 <strong>30%</strong><br><span style="font-size:11px;color:#777">실기 응시 필수</span></td>
+          <td>교과성적 상위 <strong>10명</strong></td>
+          <td>없음</td>
+        </tr>
+
+        <!-- ▸ 실기 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 실기고사</td></tr>
+        <tr><td>실기 비중</td><td><strong>50%</strong> (200점)</td><td><strong style="color:#e65100">60%</strong> (300점)</td><td><strong>30%</strong> (120점)</td></tr>
+        <tr><td>실기 종목</td><td>연필 기물소묘 1종</td><td>정밀묘사·정물소묘·수채 택1</td><td>정물소묘 4종 필수</td></tr>
+        <tr><td>시험시간</td><td>3시간 30분</td><td>4시간</td><td>3시간</td></tr>
+        <tr><td>실기 배제선</td><td>200점 중 <strong>120점 미만</strong></td><td>100점 중 <strong>63점 이하</strong></td><td>별도 없음</td></tr>
         <tr><td>이젤·화판</td><td>학교 제공</td><td>개인 지참</td><td>학교 제공</td></tr>
-        <tr><td>이런 학생에게</td><td>실기 자신 있는 학생</td><td>실기+내신 균형 학생</td><td>내신 좋고 디자인 지망</td></tr>
+
+        <!-- ▸ 모집 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 모집 규모</td></tr>
+        <tr><td>미술과 정원</td><td>111명 (3학급)</td><td>70~90명 (2학급)</td><td>160명 (8학급 통합)</td></tr>
+        <tr><td>국가보훈 정원외</td><td>3명 이내</td><td>2명 이내</td><td>4명 이내</td></tr>
+        <tr><td>특례입학 정원외</td><td>2명 이내</td><td>1명 이내</td><td>3명 이내</td></tr>
+        <tr><td>사회통합전형</td><td>없음</td><td>없음</td><td>8명 (정원 내)</td></tr>
+
+        <!-- ▸ 요약 -->
+        <tr style="background:#f5f7fa"><td colspan=4 style="font-size:11px;font-weight:800;color:#1a3a5c;padding:6px 14px;letter-spacing:.5px">▸ 이런 학생에게</td></tr>
+        <tr><td>추천 대상</td>
+          <td>내신+실기 균형 잡힌 학생</td>
+          <td>실기 강점, 종목 선택 활용 학생</td>
+          <td>내신 우수 + 디자인·공예 지망</td>
+        </tr>
+
       </tbody>
     </table>
   </div>
@@ -814,18 +889,41 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
         <div class=col-body>
 
           <div class=info-block>
-            <div class=info-title>2027학년도 (2026년 시험) — 후보 기물 10종</div>
+            <div class=info-title>2027학년도 (2026년 시험) — 후보 기물 10종 <span style="background:#e8f5e9;color:#1b5e20;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700">공식 공고</span></div>
             <div class=gimul-wrap>
-              <span class=gimul>주전자</span><span class=gimul>도자기</span><span class=gimul>축구공</span>
-              <span class=gimul>손가방</span><span class=gimul>곰인형</span><span class=gimul>화분류</span>
-              <span class=gimul>캡모자</span><span class=gimul>체크천</span><span class=gimul>전구</span>
+              <span class=gimul>주전자</span>
+              <span class=gimul>도자기</span>
+              <span class=gimul>공</span>
+              <span class=gimul>손가방</span>
+              <span class=gimul>곰인형</span>
+              <span class=gimul>화분류</span>
+              <span class=gimul>캡모자</span>
+              <span class=gimul>체크천</span>
+              <span class=gimul>전구</span>
               <span class=gimul>고무장갑</span>
             </div>
-            <div class=ib style="margin-top:8px">실제 출제 4종: 확인 중 (고사 당일 결정)</div>
+            <div class=ib style="margin-top:8px">평가일 <strong>4일 전</strong> 후보 기물 중 출제될 5종과 조건(화지 방향 포함)을 학교 홈페이지에 발표. 브랜드·디자인 일부 변경 가능, 기물 내용물과 함께 출제 가능. 실루엣은 실제 정물과 유사한 형태만 공개.</div>
           </div>
 
           <div class=info-block>
-            <div class=info-title>2026학년도 (2025년 시험) — 실제 출제</div>
+            <div class=info-title>2026학년도 (2025년 시험) — 출제 정물군 10종</div>
+            <div class=gimul-wrap>
+              <span class=gimul>통배추</span>
+              <span class=gimul>캐치티니핑음료</span>
+              <span class=gimul>포카칩</span>
+              <span class=gimul>거실화</span>
+              <span class=gimul>카수가이 오부쿠로</span>
+              <span class=gimul>글라스락 도어포켓</span>
+              <span class=gimul>차량용 소화기</span>
+              <span class=gimul>미니 트리</span>
+              <span class=gimul>사과</span>
+              <span class=gimul>젤리캣 버니 수면인형</span>
+            </div>
+            <div class=ib style="margin-top:8px">10종 중 4~6개 출제. 주어진 과제와 조건에 맞춰 묘사.</div>
+          </div>
+
+          <div class=info-block>
+            <div class=info-title>2025학년도 (2024년 시험) — 실제 출제</div>
             <div class=gimul-wrap>
               <span class="gimul b">티니핑 음료</span>
               <span class="gimul b">거실화</span>
@@ -845,7 +943,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
               <span class=gimul>국화</span><span class=gimul>극세사행주</span><span class=gimul>기하도형·필름</span>
               <span class=gimul>PVC호스</span>
             </div>
-            <div class=ib style="margin-top:8px">출제 4~5종: 이 중 선택. 기하학적 형태(큐브·필름)와 유기적 형태(국화·인형손) 혼합 구성이 특징.</div>
+            <div class=ib style="margin-top:8px">출제 4~5종: 기하학적 형태(큐브·필름)와 유기적 형태(국화·인형손) 혼합 구성이 특징.</div>
           </div>
 
           <div class=info-block>
@@ -872,13 +970,13 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
         <div class=col-body>
 
           <div class=info-block>
-            <div class=info-title>2027학년도 (2026년 시험) — 후보 기물군</div>
+            <div class=info-title>2027학년도 (2026년 시험) — 후보 기물군 <span style="background:#e8f5e9;color:#1b5e20;border-radius:3px;padding:1px 6px;font-size:10px;font-weight:700">공식 공고</span></div>
             <table class=gun-table>
-              <tr><th>1군 (5종)</th><td>플라스틱 낮은 의자, 작업용 장화, 접보물 휴지, 밀짚모자, 양은 주전자</td></tr>
-              <tr><th>2군 (5종)</th><td>양파, 피망, 브로콜리, 양배추, 바나나</td></tr>
-              <tr><th>3군 (6종)</th><td>캔, 투명 플라스틱 와인잔, 반코팅 목장갑, 깃털 셔틀콕, 분무기, 스웨이드 신발 브러쉬</td></tr>
+              <tr><th>1군 (5종)</th><td>플라스틱 낮은 의자, 작업용 장화, <mark>접보물 휴지</mark>, <mark>밀짚모자</mark>, <mark>양은 주전자</mark></td></tr>
+              <tr><th>2군 (5종)</th><td>양파, 피망, <mark>브로콜리</mark>, <mark>양배추</mark>, <mark>바나나</mark></td></tr>
+              <tr><th>3군 (6종)</th><td>캔, 투명 플라스틱 와인잔, 반코팅 목장갑, <mark>깃털 셔틀콕</mark>, <mark>분무기</mark>, <mark>스웨이드 신발 브러쉬</mark></td></tr>
             </table>
-            <div class=ib style="margin-top:8px">실제 출제 4종: 고사 2일 전 공고 예정</div>
+            <div class=ib style="margin-top:8px">고사 <strong>2일 전</strong> 1군·2군 각 1개 + 3군 2개 = 총 4종 확정 공고. 이젤·화판 학교 제공, 연필·지우개만 사용(전동지우개 불가), 배경 생략 가능·그림자 필수.</div>
           </div>
 
           <div class=info-block>
@@ -889,7 +987,7 @@ footer#site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,
               <tr><th>3군 (6종)</th><td>캔, 봉지과자, 투명 플라스틱 와인잔, 쿠킹호일, 반코팅 목장갑, 물티슈(캡형)</td></tr>
             </table>
             <div class=ib style="margin-top:8px">
-              실제 출제 조합 예: 플라스틱 낮은 의자+국화 / 비치볼+쿠킹호일 / 피망+와인잔
+              1군·2군 각 1개 + 3군 2개 = 총 4종 출제. 고사 2일 전 군별 조합 확정 공고.
             </div>
           </div>
 
